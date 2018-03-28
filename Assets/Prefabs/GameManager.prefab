@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1753466402479766}
+  m_IsPrefabParent: 1
+--- !u!1 &1753466402479766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4342271838057352}
+  - component: {fileID: 114112827437570862}
+  - component: {fileID: 114030249891244556}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4342271838057352
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753466402479766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114030249891244556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753466402479766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c218cc897ae5c4c9e359b73b95fc93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  columns: 6
+  rows: 6
+  floorTiles:
+  - {fileID: 1995674486409262, guid: f1570241b4e61ba43a5a2a1317f6bfbc, type: 2}
+  - {fileID: 1524714120381780, guid: aefb0457c7475154d9f1d40961e32940, type: 2}
+  outerWallTiles:
+  - {fileID: 1491947687798660, guid: 65dbf33a938efcd44b66d5f7eada838a, type: 2}
+  player6: {fileID: 1430120014915434, guid: 24c3b0d9bd212bc4b96667f40d35d17d, type: 2}
+  backdrop: {fileID: 1702568065968454, guid: 957656d4d62600e46b8175ab0d586dfd, type: 2}
+  foor: {fileID: 1397783789723442, guid: fae1b49493a408e4e886f9cb16eb6f43, type: 2}
+--- !u!114 &114112827437570862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753466402479766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5214df23ba3613b4eb6af2e7b611c3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnDelay: 0.1
+  playersTurn: 1
+  doNothing: 1
+  playerHistory: []
+  whiteHistory: []
