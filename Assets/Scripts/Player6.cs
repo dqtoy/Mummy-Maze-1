@@ -34,15 +34,10 @@ public class Player6 : MovingObject {
 			vertical = 0;
 		if(horizontal != 0 || vertical != 0)
 		{
-			//Call AttemptMove passing in the generic parameter Wall, since that is what Player may interact with if they encounter one (by attacking it)
-			//Pass in horizontal and vertical as parameters to specify the direction to move Player in.
 			AttemptMove<White6> (horizontal, vertical,out check);
 		}
 	}
 	protected override void AttemptMove <T> (int xDir,int yDir,out bool check){
-
-	
-
 		Vector2 start = transform.position;
 		Vector2 end = start + new Vector2 (xDir, yDir);
 
@@ -61,8 +56,6 @@ public class Player6 : MovingObject {
 			GameManager.instance.playerHistory.Add (end);
 		} 
 
-		//RaycastHit2D hit;
-		//CheckIfGameOver ();
 		GameManager.instance.playersTurn = false;
 		GameManager.playerMoving = false;
 

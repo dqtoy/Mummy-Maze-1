@@ -6,12 +6,14 @@ public class White6 : MovingObject {
 	
 	private Animator animator;							
 	private Transform target;						
-	private bool skipMove;					
-	private Vector2 temp;
+	private bool skipMove;
+    private Vector2 start;
+    private Vector2 end;
 
 
 
-	protected override void Start ()
+
+    protected override void Start ()
 	{
 		GameManager.instance.AddEnemyToList (this);
 
@@ -27,8 +29,8 @@ public class White6 : MovingObject {
 
 
 	protected override void AttemptMove <T> (int xDir,int yDir, out bool checkMove){
-		Vector2 start = transform.position;
-		Vector2 end = start + new Vector2 (xDir, yDir);
+		start = transform.position;
+		end = start + new Vector2 (xDir, yDir);
 
 	
 		base.AttemptMove <T> (xDir, yDir, out checkMove);
@@ -53,8 +55,6 @@ public class White6 : MovingObject {
 
 	public void MoveEnemy ()
 	{
-
-
 		int xDir = 0;
 		int yDir = 0;
 
@@ -82,9 +82,9 @@ public class White6 : MovingObject {
 	protected override void OnCantMove <T> (T component)
 	{
 
+        StartCoroutine(SmoothMovement(end));
 
-
-	}
+    }
 	protected override void OnCantMove (){
 	}
 

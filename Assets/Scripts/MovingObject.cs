@@ -20,48 +20,15 @@ public abstract class MovingObject : MonoBehaviour {
 
 
 	protected bool Move(int xDir, int yDir,out RaycastHit2D hit){
-        bool checkList = true;
 		Vector2 start = transform.position;
 
 		Vector2 end = start + new Vector2 (xDir, yDir);
 
-		//if (xDir == 0 && yDir == 1) {
-		//	for (int i = 0; i < BoardManager.cantMoveUp.Count; i++) {
-		//		if (BoardManager.cantMoveUp [i].x == start.x && BoardManager.cantMoveUp [i].y == start.y) {
-		//			checkList = false;
-		//		}
-		//	}
-		//} else if (xDir == 0 && yDir == -1) {
-		//	for (int i = 0; i < BoardManager.cantMoveDown.Count; i++) {
-		//		if (BoardManager.cantMoveDown [i].x == start.x && BoardManager.cantMoveDown [i].y == start.y) {
-		//			checkList = false;
-		//		}
-		//	}
-		//} else if (xDir == -1 && yDir == 0) {
-		//	for (int i = 0; i < BoardManager.cantMoveLeft.Count; i++) {
-		//		if (BoardManager.cantMoveLeft [i].x == start.x && BoardManager.cantMoveLeft [i].y == start.y) {
-		//			checkList = false;
-		//		}
-		//	}
-		//} else if (xDir == 1 && yDir == 0) {
-		//	for (int i = 0; i < BoardManager.cantMoveRight.Count; i++) {
-		//		if (BoardManager.cantMoveRight [i].x == start.x && BoardManager.cantMoveRight [i].y == start.y) {
-		//			checkList = false;
-		//		}
-		//	}
-		//}
-
         boxCollider.enabled = false;
-
 		hit = Physics2D.Linecast (start, end, blockingLayer);
 		boxCollider.enabled = true;
 
-        if(!checkList)
-        {
-			OnCantMove ();
-            return false;
-        }
-
+ 
 		if (hit.transform == null) {
 			StartCoroutine (SmoothMovement (end));
 			return true;
@@ -69,7 +36,7 @@ public abstract class MovingObject : MonoBehaviour {
         return false;
 	}
 
-	protected IEnumerator SmoothMovement(Vector3 end){
+	public IEnumerator SmoothMovement(Vector3 end){
 		
 		float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
 
@@ -96,7 +63,7 @@ public abstract class MovingObject : MonoBehaviour {
 
 		T hitCompoment = hit.transform.GetComponent<T> ();
 
-		if (!canMove && hitCompoment == null) {
+		if (!canMove && hitCompoment != null) {
 			OnCantMove (hitCompoment);
 			return;
 		}
