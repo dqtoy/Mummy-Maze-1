@@ -65,3 +65,5 @@ C:\Users\AnhThu\Desktop\New folder\Mummy Maze\Temp\bin\Debug\UnityEditor.iOS.Ext
 C:\Users\AnhThu\Desktop\New folder\Mummy Maze\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\AnhThu\Desktop\New folder\Mummy Maze\obj\Debug\Assembly-CSharp.dll
 C:\Users\AnhThu\Desktop\New folder\Mummy Maze\obj\Debug\Assembly-CSharp.pdb
+C:\Users\AnhThu\Desktop\New folder\Mummy Maze\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+C:\Users\AnhThu\Desktop\New folder\Mummy Maze\obj\Debug\Assembly-CSharp.csproj.CopyComplete
