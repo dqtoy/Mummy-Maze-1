@@ -493,6 +493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1839156870}
   - component: {fileID: 966389387}
+  - component: {fileID: 966389388}
   m_Layer: 0
   m_Name: backdrop
   m_TagString: Untagged
@@ -545,6 +546,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &966389388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 966389386}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba9148681200e8f4c84a017023f47638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1240448224 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4048379451970944, guid: fae1b49493a408e4e886f9cb16eb6f43,
@@ -672,24 +684,6 @@ Prefab:
     - target: {fileID: 4360503106641566, guid: e09fe58561f6fcc4e9fb3a6b46b3158f, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 61293532233978968, guid: e09fe58561f6fcc4e9fb3a6b46b3158f,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 61293532233978968, guid: e09fe58561f6fcc4e9fb3a6b46b3158f,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1778370134530228, guid: e09fe58561f6fcc4e9fb3a6b46b3158f, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1778370134530228, guid: e09fe58561f6fcc4e9fb3a6b46b3158f, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e09fe58561f6fcc4e9fb3a6b46b3158f, type: 2}

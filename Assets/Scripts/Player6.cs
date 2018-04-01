@@ -41,12 +41,13 @@ public class Player6 : MovingObject {
 	}
 	protected override void AttemptMove <T> (int xDir,int yDir,out bool check){
 
-		GameManager.instance.enemyTurn = true;
+	
 
 		Vector2 start = transform.position;
 		Vector2 end = start + new Vector2 (xDir, yDir);
 
 		base.AttemptMove <T> (xDir, yDir,out check);
+
 		if (check) {
 			if (xDir == 0 && yDir == 1) {
 				animator.SetTrigger ("player6Up");
@@ -69,10 +70,11 @@ public class Player6 : MovingObject {
 		
 
 	protected override void OnCantMove <T> (T Component){
-		animator.SetTrigger ("player6Died");
-	}
+        GameManager.instance.playersTurn = true;
 
-	protected override void OnCantMove(){
+    }
+
+    protected override void OnCantMove(){
 		GameManager.instance.playersTurn = true;
 	}
 

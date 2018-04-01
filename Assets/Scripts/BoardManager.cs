@@ -76,17 +76,22 @@ public class BoardManager : MonoBehaviour {
 
 	void SetupWallList()
 	{
-		cantMoveDown.Add(new Vector2 (5f,4f));
-		cantMoveUp.Add(new Vector2 (5f,4f-1f));
-		cantMoveLeft.Add(new Vector2 (5f,4f));
-		cantMoveRight.Add(new Vector2 (5f-1f,4f));
+		//cantMoveDown.Add(new Vector2 (5f,4f));
 
 
-		cantMoveLeft.Add(new Vector2 (4f,4f));
-		cantMoveRight.Add(new Vector2 (4f-1f,4f));
 
-		cantMoveDown.Add(new Vector2 (2f,1f));
-		cantMoveUp.Add(new Vector2 (2f,1f-1f));
+
+  //      cantMoveUp.Add(new Vector2 (5f,3f));
+       
+  //      cantMoveLeft.Add(new Vector2 (5f,4f));
+		//cantMoveRight.Add(new Vector2 (4f,4f));
+
+
+		//cantMoveLeft.Add(new Vector2 (4f,4f));
+		//cantMoveRight.Add(new Vector2 (3f,4f));
+
+		//cantMoveDown.Add(new Vector2 (2f,1f));
+		//cantMoveUp.Add(new Vector2 (2f,0f));
 
 	
 	}

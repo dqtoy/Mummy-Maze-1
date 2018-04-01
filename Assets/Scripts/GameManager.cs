@@ -50,15 +50,15 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-        Debug.Log(enemiesMoving);
-		//Check that playersTurn or enemiesMoving or doingSetup are not currently true.
-		if(playersTurn || enemiesMoving || !enemyTurn )
+        
+      
+        //Check that playersTurn or enemiesMoving or doingSetup are not currently true.
+        if (playersTurn || enemiesMoving )
 
 			//If any of these are true, return and do not start MoveEnemies.
 			return;
-		//Start moving enemies.
-
-		StartCoroutine (MoveEnemies ());
+        //Start moving enemies.
+        StartCoroutine (MoveEnemies ());
 
 	}
 
@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour {
 
 	//Coroutine to move enemies in sequence.
 	IEnumerator MoveEnemies(){
-		if(enemyTurn){
 		//While enemiesMoving is true player is unable to move.
 		enemiesMoving = true;
 		//Wait for turnDelay seconds, defaults to .1 (100 ms).
@@ -87,11 +86,10 @@ public class GameManager : MonoBehaviour {
 			//Call the MoveEnemy function of Enemy at index i in the enemies List.
 			yield return new WaitForSeconds(enemies[i].moveTime);
 			enemies[i].MoveEnemy ();
-			yield return new WaitForSeconds(0.7f);
+			yield return new WaitForSeconds(1f);
 			enemies[i].MoveEnemy ();
 			//Wait for Enemy's moveTime before moving next Enemy, 
 			}
-		}
 		//Once Enemies are done moving, set playersTurn to true so player can move.
 		playersTurn = true;
 		//Enemies are done moving, set enemiesMoving to false.

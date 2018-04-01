@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class MovingObject : MonoBehaviour {
 
-	public float moveTime = 0.1f;
+	public float moveTime = 1f;
 	public LayerMask blockingLayer;
 
 	private BoxCollider2D boxCollider;
@@ -25,42 +25,42 @@ public abstract class MovingObject : MonoBehaviour {
 
 		Vector2 end = start + new Vector2 (xDir, yDir);
 
-	
-
-		if (xDir == 0 && yDir == 1) {
-			for (int i = 0; i < BoardManager.cantMoveUp.Count; i++) {
-				if (BoardManager.cantMoveUp [i].x == start.x && BoardManager.cantMoveUp [i].y == start.y) {
-					checkList = false;
-				}
-			}
-		} else if (xDir == 0 && yDir == -1) {
-			for (int i = 0; i < BoardManager.cantMoveDown.Count; i++) {
-				if (BoardManager.cantMoveDown [i].x == start.x && BoardManager.cantMoveDown [i].y == start.y) {
-					checkList = false;
-				}
-			}
-		} else if (xDir == -1 && yDir == 0) {
-			for (int i = 0; i < BoardManager.cantMoveLeft.Count; i++) {
-				if (BoardManager.cantMoveLeft [i].x == start.x && BoardManager.cantMoveLeft [i].y == start.y) {
-					checkList = false;
-				}
-			}
-		} else if (xDir == 1 && yDir == 0) {
-			for (int i = 0; i < BoardManager.cantMoveRight.Count; i++) {
-				if (BoardManager.cantMoveRight [i].x == start.x && BoardManager.cantMoveRight [i].y == start.y) {
-					checkList = false;
-				}
-			}
-		}
+		//if (xDir == 0 && yDir == 1) {
+		//	for (int i = 0; i < BoardManager.cantMoveUp.Count; i++) {
+		//		if (BoardManager.cantMoveUp [i].x == start.x && BoardManager.cantMoveUp [i].y == start.y) {
+		//			checkList = false;
+		//		}
+		//	}
+		//} else if (xDir == 0 && yDir == -1) {
+		//	for (int i = 0; i < BoardManager.cantMoveDown.Count; i++) {
+		//		if (BoardManager.cantMoveDown [i].x == start.x && BoardManager.cantMoveDown [i].y == start.y) {
+		//			checkList = false;
+		//		}
+		//	}
+		//} else if (xDir == -1 && yDir == 0) {
+		//	for (int i = 0; i < BoardManager.cantMoveLeft.Count; i++) {
+		//		if (BoardManager.cantMoveLeft [i].x == start.x && BoardManager.cantMoveLeft [i].y == start.y) {
+		//			checkList = false;
+		//		}
+		//	}
+		//} else if (xDir == 1 && yDir == 0) {
+		//	for (int i = 0; i < BoardManager.cantMoveRight.Count; i++) {
+		//		if (BoardManager.cantMoveRight [i].x == start.x && BoardManager.cantMoveRight [i].y == start.y) {
+		//			checkList = false;
+		//		}
+		//	}
+		//}
 
         boxCollider.enabled = false;
 
 		hit = Physics2D.Linecast (start, end, blockingLayer);
+		boxCollider.enabled = true;
+
         if(!checkList)
         {
+			OnCantMove ();
             return false;
         }
-		boxCollider.enabled = true;
 
 		if (hit.transform == null) {
 			StartCoroutine (SmoothMovement (end));
@@ -96,12 +96,8 @@ public abstract class MovingObject : MonoBehaviour {
 
 		T hitCompoment = hit.transform.GetComponent<T> ();
 
-		if (!canMove && hitCompoment != null) {
+		if (!canMove && hitCompoment == null) {
 			OnCantMove (hitCompoment);
-			return;
-		}
-		if (!canMove) {
-			OnCantMove ();
 			return;
 		}
 	}
